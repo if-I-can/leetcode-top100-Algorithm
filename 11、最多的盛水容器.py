@@ -21,8 +21,5 @@ class Solution(object):
 
 
 
-
-
-
 tem = Solution()
 print(tem.longestPalindrome(s="abcdad"))
