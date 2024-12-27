@@ -10,13 +10,14 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: bool
         """
-        def is_correct(node):
-            if node.left > node.val or node.right < node.val:
+        def is_correct(node,low,high):
+
+            if not node:
+                return True
+            
+            if node.val <= low or node.val >= high:
                 return False
             
-            while node.left and node.right:
-                is_correct(node.left)
-                is_correct(node.right)
-            
-            return True
-        return is_correct(root[0])
+            return is_correct(node.left,low,node.val) and is_correct(node.right,node.val,high)
+        
+        return is_correct(root,float('-inf'),float('inf'))
