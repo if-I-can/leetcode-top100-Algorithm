@@ -5,13 +5,15 @@ class LRUCache(object):
         :type capacity: int
         """
         self.capacuity = capacity
+        self.dict = {}
 
     def get(self, key):
         """
         :type key: int
         :rtype: int
         """
-        
+        return self.dict[key] if self.dict[key] else -1
+
         
 
     def put(self, key, value):
@@ -20,6 +22,7 @@ class LRUCache(object):
         :type value: int
         :rtype: None
         """
+        for key
         
 
 
