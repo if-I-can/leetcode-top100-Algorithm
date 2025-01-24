@@ -4,17 +4,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        
-        dp = [0]*len(nums)
-        result1 = []
-        result2 = []
-        for i in range(len(nums)):
-            result1.append(nums[i])
-            for 
+        if sum(nums) % 2 != 0:
+            return False
 
-            
+        mid = sum(nums)//2
+
+        dp = [False]*(mid+1)
+        dp[0] = True
+
+        for num in nums:
+            for i in range(mid,num-1,-1):
+                dp[i] = dp[i] or dp[i-num]
         
-        return True
+        return dp[mid]
+        
         
 tp = Solution()
-print(tp.canPartition([1,3,4]))
+print(tp.canPartition([1,3,2,4,5]))
